@@ -3,7 +3,7 @@
 <h1 data-importer="text" align="center">welcome to my github howdy!</h1>
 
 <div data-importer="stats" align="center">
-  <img src="https://raw.githubusercontent.com/initchirag/initchirag/stats-output/stats.svg?hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&custom_title=specs" height="150" alt="stats graph" /> <br>
+  <img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=infomap&show_icons=true&include_all_commits=true&theme=tokyonight" /> <br>
 </div>
 
 <br clear="both">
