@@ -2,6 +2,8 @@
 
 welcome to my github howdy..!
 
+<img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=GitHub%20Stats&show_icons=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" />
+
 <br>
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="50" alt="Python logo" />
