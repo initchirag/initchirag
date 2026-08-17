@@ -1,3 +1,35 @@
+## `whoami`
+
+Hi, I’m Chirag Singh, a Cybersecurity student passionate about ethical hacking, digital forensics, network security, and technology. I love turning ideas into practical projects, exploring vulnerabilities, and continuously learning new skills. This website showcases my projects, technical journey, experiments, and the work I’ve built along the way.
+
+---
+
+## `./aspirations`
+
+```text
+focus       : Red Team 
+working_on  : CCNA 200-301
+mindset     : Not every compromise starts with malware.
+              Sometimes it starts with trust, gains persistence,
+
+              escalates privileges,
+              and by the time you detect it,
+              the damage is already part of the system.
+ 
+````
+
+---
+
+## `cat ./skills.txt`
+
+![SIEM](https://img.shields.io/badge/SIEM-00B8D9?style=flat-square)
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=flat-square)
+![Python](https://img.shields.io/badge/Python-555555?style=flat-square)
+![Linux](https://img.shields.io/badge/Linux-555555?style=flat-square)
+![Security+](https://img.shields.io/badge/Security%2B-In_Progress-00B894?style=flat-square)
+
+
+
 <div align="center">
 
 welcome to my github howdy..!
