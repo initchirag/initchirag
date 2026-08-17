@@ -1,4 +1,4 @@
-## `whoami`
+## `./whoami`
 
 Hi, I’m Chirag Singh, a Cybersecurity student passionate about ethical hacking, digital forensics, network security, and technology. I love turning ideas into practical projects, exploring vulnerabilities, and continuously learning new skills. This website showcases my projects, technical journey, experiments, and the work I’ve built along the way.
 
@@ -6,7 +6,9 @@ Hi, I’m Chirag Singh, a Cybersecurity student passionate about ethical hacking
 
 ## `./aspirations`
 
+
 ```text
+
 focus       : Red Team 
 working_on  : CCNA 200-301
 mindset     : Not every compromise starts with malware.
@@ -22,38 +24,22 @@ mindset     : Not every compromise starts with malware.
 
 ## `cat ./skills.txt`
 
+<div align="center">
+
 ![SIEM](https://img.shields.io/badge/SIEM-00B8D9?style=flat-square)
 ![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=flat-square)
 ![Python](https://img.shields.io/badge/Python-555555?style=flat-square)
 ![Linux](https://img.shields.io/badge/Linux-555555?style=flat-square)
 ![Security+](https://img.shields.io/badge/Security%2B-In_Progress-00B894?style=flat-square)
 
-
-
-<div align="center">
-
-welcome to my github howdy..!
-
 <img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=GitHub%20Stats&show_icons=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" />
-
-<br>
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="50" alt="Python logo" />
-&nbsp;&nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="50" alt="Git logo" />
-&nbsp;&nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="50" alt="Linux logo" />
-&nbsp;&nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg" height="50" alt="Red Hat logo" />
-
-</div>
 
 <br>
 
 <div align="center">
   <img
     align="center"
-    height="300"
+    height="400"
     src="https://camo.githubusercontent.com/d61f7b9b674900570c595ca72ecde53c5654897e3abf81e44fc3cf91c78ba9dd/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313130302f666f726d61743a776562702f312a5671307351373951495a56365631522d743771746d772e676966"
     alt="Coding animation"
   />
