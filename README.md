@@ -9,7 +9,7 @@ Hi, I’m Chirag Singh, a Cybersecurity student passionate about ethical hacking
 
 ```text
 
-focus       : Red Team 
+focus       : Blue Team 
 working_on  : CCNA 200-301
 mindset     : Not every compromise starts with malware.
               Sometimes it starts with trust, gains persistence,
