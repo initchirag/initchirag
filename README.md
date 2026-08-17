@@ -39,7 +39,7 @@ mindset     : Not every compromise starts with malware.
 <div align="center">
   <img
     align="center"
-    height="400"
+    height="500"
     src="https://camo.githubusercontent.com/d61f7b9b674900570c595ca72ecde53c5654897e3abf81e44fc3cf91c78ba9dd/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f76322f726573697a653a6669743a313130302f666f726d61743a776562702f312a5671307351373951495a56365631522d743771746d772e676966"
     alt="Coding animation"
   />
