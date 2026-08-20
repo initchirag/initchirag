@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Change README wallpaper
+      - name: Update README wallpaper
         shell: bash
         run: |
           python3 <<'PY'
@@ -26,7 +26,7 @@ jobs:
           wallpaper_dir = Path("randomizer/wallpapers")
           readme = Path("README.md")
 
-          # Find all JPG and JPEG wallpapers
+          # Get wallpapers in fixed order
           wallpapers = sorted(
               list(wallpaper_dir.glob("*.jpg")) +
               list(wallpaper_dir.glob("*.jpeg")),
@@ -34,19 +34,16 @@ jobs:
           )
 
           if not wallpapers:
-              raise SystemExit(
-                  "ERROR: No JPG/JPEG wallpapers found in "
-                  "randomizer/wallpapers/"
-              )
+              raise SystemExit("ERROR: No wallpapers found.")
 
-          print("Wallpaper queue:")
-          for i, wallpaper in enumerate(wallpapers, start=1):
-              print(f"{i}. {wallpaper.name}")
+          print("Wallpapers:")
+          for i, wallpaper in enumerate(wallpapers):
+              print(f"{i}: {wallpaper.name}")
 
           # Read README
           text = readme.read_text(encoding="utf-8")
 
-          # Find currently displayed wallpaper
+          # Find the currently displayed wallpaper
           current_match = re.search(
               r'\./randomizer/wallpapers/([^"\s>]+\.(?:jpg|jpeg))',
               text,
@@ -57,7 +54,7 @@ jobs:
 
           print(f"Current wallpaper: {current}")
 
-          # Find current wallpaper's position
+          # Find current wallpaper index
           current_index = -1
 
           if current:
@@ -66,13 +63,47 @@ jobs:
                       current_index = i
                       break
 
-          # Move to the NEXT wallpaper in order
+          # Select NEXT wallpaper
           next_index = (current_index + 1) % len(wallpapers)
           selected = wallpapers[next_index]
 
-          print(f"Next wallpaper: {selected.name}")
+          print(f"New wallpaper: {selected.name}")
 
-          # New centered wallpaper block
+          # ------------------------------------------------
+          # REMOVE ALL OLD WALLPAPER MARKUP
+          # ------------------------------------------------
+
+          # Remove WALLPAPER_START ... WALLPAPER_END blocks
+          text = re.sub(
+              r'<!-- WALLPAPER_START -->.*?<!-- WALLPAPER_END -->',
+              '',
+              text,
+              flags=re.DOTALL
+          )
+
+          # Remove any old wallpaper <img> tags
+          text = re.sub(
+              r'<img[^>]*src=["\']\./randomizer/wallpapers/[^"\']+["\'][^>]*>',
+              '',
+              text,
+              flags=re.IGNORECASE
+          )
+
+          # Remove empty centered paragraphs left behind
+          text = re.sub(
+              r'<p\s+align=["\']center["\']>\s*</p>',
+              '',
+              text,
+              flags=re.IGNORECASE
+          )
+
+          # Clean excessive blank lines
+          text = re.sub(r'\n{3,}', '\n\n', text).strip()
+
+          # ------------------------------------------------
+          # ADD ONLY THE NEW WALLPAPER
+          # ------------------------------------------------
+
           wallpaper_block = f"""<!-- WALLPAPER_START -->
 
           <p align="center">
@@ -81,36 +112,13 @@ jobs:
 
           <!-- WALLPAPER_END -->"""
 
-          # Find existing wallpaper block
-          pattern = (
-              r'<!-- WALLPAPER_START -->'
-              r'.*?'
-              r'<!-- WALLPAPER_END -->'
-          )
-
-          if re.search(pattern, text, flags=re.DOTALL):
-              # Replace existing wallpaper
-              updated = re.sub(
-                  pattern,
-                  wallpaper_block,
-                  text,
-                  count=1,
-                  flags=re.DOTALL
-              )
-
-              print("Wallpaper changed successfully.")
-
-          else:
-              # Create wallpaper block
-              updated = wallpaper_block + "\n\n" + text
-
-              print("No wallpaper block found.")
-              print("Created wallpaper block.")
+          updated = wallpaper_block + "\n\n" + text + "\n"
 
           # Save README
           readme.write_text(updated, encoding="utf-8")
 
-          print("README updated successfully.")
+          print("README now contains ONLY:")
+          print(selected.name)
           PY
 
       - name: Commit README update
