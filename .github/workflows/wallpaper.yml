@@ -1,4 +1,4 @@
-name: Random README Wallpaper
+name: Random Profile Wallpaper
 
 on:
   schedule:
@@ -9,77 +9,70 @@ permissions:
   contents: write
 
 jobs:
-  change-wallpaper:
+  wallpaper:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Select random wallpaper
-        shell: bash
+      - name: Change wallpaper
         run: |
-          wallpapers=(randomizer/wallpapers/*.jpg)
-
-          if [ ${#wallpapers[@]} -eq 0 ]; then
-            echo "ERROR: No JPG wallpapers found!"
-            exit 1
-          fi
-
-          # Get the wallpaper currently shown in README
-          current=$(grep -oE 'randomizer/wallpapers/[^"]+\.jpg' README.md | head -n 1 || true)
-
-          # Create list excluding current wallpaper
-          available=()
-
-          for wallpaper in "${wallpapers[@]}"; do
-            if [ "$wallpaper" != "$current" ]; then
-              available+=("$wallpaper")
-            fi
-          done
-
-          # If there is only one wallpaper, use it
-          if [ ${#available[@]} -eq 0 ]; then
-            available=("${wallpapers[@]}")
-          fi
-
-          # Pick random wallpaper
-          random_wallpaper="${available[$RANDOM % ${#available[@]}]}"
-          filename=$(basename "$random_wallpaper")
-
-          echo "Selected wallpaper: $filename"
-
-          # Update README
-          FILENAME="$filename" python3 <<'PY'
+          python3 <<'PY'
           from pathlib import Path
-          import os
+          import random
           import re
 
+          wallpaper_dir = Path("randomizer/wallpapers")
           readme = Path("README.md")
+
+          wallpapers = sorted(
+              list(wallpaper_dir.glob("*.jpg")) +
+              list(wallpaper_dir.glob("*.jpeg"))
+          )
+
+          if not wallpapers:
+              raise SystemExit("No JPG wallpapers found.")
+
           text = readme.read_text(encoding="utf-8")
 
-          filename = os.environ["FILENAME"]
-
-          new_image = (
-              f'<img src="./randomizer/wallpapers/{filename}" '
-              f'width="100%" alt="Random wallpaper" />'
+          # Find current wallpaper
+          match = re.search(
+              r'randomizer/wallpapers/([^"]+\.(?:jpg|jpeg))',
+              text,
+              re.IGNORECASE
           )
 
-          pattern = (
-              r'<!-- WALLPAPER_START -->'
-              r'.*?'
-              r'<!-- WALLPAPER_END -->'
-          )
+          current = match.group(1) if match else None
 
-          replacement = (
-              '<!-- WALLPAPER_START -->\n'
-              f'{new_image}\n'
-              '<!-- WALLPAPER_END -->'
-          )
+          # Don't immediately select the same wallpaper
+          choices = [
+              wallpaper
+              for wallpaper in wallpapers
+              if wallpaper.name != current
+          ]
+
+          if not choices:
+              choices = wallpapers
+
+          selected = random.choice(choices)
+
+          print(f"Current wallpaper: {current}")
+          print(f"New wallpaper: {selected.name}")
+
+          new_block = f"""<!-- WALLPAPER_START -->
+
+          <p align="center">
+            <img src="./randomizer/wallpapers/{selected.name}" width="100%" alt="Random wallpaper">
+          </p>
+
+          <!-- WALLPAPER_END -->"""
+
+          pattern = r'<!-- WALLPAPER_START -->.*?<!-- WALLPAPER_END -->'
 
           updated, count = re.subn(
               pattern,
-              replacement,
+              new_block,
               text,
               count=1,
               flags=re.DOTALL
@@ -87,13 +80,15 @@ jobs:
 
           if count != 1:
               raise SystemExit(
-                  "ERROR: Wallpaper markers not found in README.md"
+                  "README markers not found."
               )
 
           readme.write_text(updated, encoding="utf-8")
+
+          print("README updated successfully.")
           PY
 
-      - name: Commit README change
+      - name: Commit changes
         run: |
           git config user.name "initchirag"
           git config user.email "grepchiragsingh7@gmail.com"
@@ -101,8 +96,8 @@ jobs:
           git add README.md
 
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "No changes."
           else
-            git commit -m "🖼️ Update README wallpaper"
+            git commit -m "🖼️ Update profile wallpaper"
             git push
           fi
