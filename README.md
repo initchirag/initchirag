@@ -2,4 +2,6 @@
   <img src="./randomizer/wallpapers/wallpaper09.jpg" width="100%" alt="Random wallpaper">
 </p>
 
-[website](https://grepwithchirag7.netlify.app) | [LinkedIn](https://www.linkedin.com/in/beingchiragsingh) | [email](mailto:grepchiragsingh7@example.com)
+dream big, God can fund it..?
+
+[website](https://grepwithchirag7.netlify.app)  |  [linkedIn](https://www.linkedin.com/in/beingchiragsingh)  |  [email](mailto:grepchiragsingh7@example.com)
