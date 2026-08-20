@@ -1,3 +1,3 @@
 <p align="center">
-  <img src="./randomizer/wallpapers/wallpaper05.jpg" width="90%" alt="Random wallpaper" />
+  <img src="./randomizer/wallpapers/wallpaper01.jpg" width="90%" alt="Random wallpaper" />
 </p>
