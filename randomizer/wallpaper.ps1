@@ -1,45 +1,81 @@
-# Wallpaper Randomizer
-# Changes to a random wallpaper every 20 minutes
-
 Add-Type @"
 using System;
 using System.Runtime.InteropServices;
 
 public class Wallpaper {
-    [DllImport("user32.dll", CharSet = CharSet.Auto)]
-    public static extern int SystemParametersInfo(
-        int uAction,
-        int uParam,
-        string lpvParam,
-        int fuWinIni
+    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+    public static extern bool SystemParametersInfo(
+        uint uiAction,
+        uint uiParam,
+        string pvParam,
+        uint fWinIni
     );
 }
 "@
 
 $wallpaperFolder = Join-Path $PSScriptRoot "wallpapers"
 
-$wallpapers = Get-ChildItem -Path $wallpaperFolder -Filter "*.png"
+if (-not (Test-Path $wallpaperFolder)) {
+    Write-Host "ERROR: wallpapers folder not found!"
+    Write-Host "Expected: $wallpaperFolder"
+    exit 1
+}
+
+# Get JPG/JPEG wallpapers
+$wallpapers = @(
+    Get-ChildItem -Path $wallpaperFolder -File |
+    Where-Object {
+        $_.Extension -match '^\.(jpg|jpeg)$'
+    }
+)
 
 if ($wallpapers.Count -eq 0) {
-    Write-Host "No PNG wallpapers found in the wallpapers folder."
-    exit
+    Write-Host "ERROR: No JPG wallpapers found!"
+    Write-Host "Put your JPG files inside the wallpapers folder."
+    exit 1
 }
+
+Write-Host "=========================================="
+Write-Host "       RANDOM WALLPAPER CHANGER"
+Write-Host "=========================================="
+Write-Host ""
+Write-Host "Found $($wallpapers.Count) wallpapers."
+Write-Host "Changing wallpaper every 5 minutes."
+Write-Host "Press CTRL+C to stop."
+Write-Host ""
+
+$previousWallpaper = $null
 
 while ($true) {
 
-    # Select a random wallpaper
-    $randomWallpaper = Get-Random -InputObject $wallpapers
+    $availableWallpapers = @(
+        $wallpapers | Where-Object {
+            $_.FullName -ne $previousWallpaper
+        }
+    )
+
+    $randomWallpaper = Get-Random -InputObject $availableWallpapers
 
     Write-Host "Changing wallpaper to: $($randomWallpaper.Name)"
 
-    # Set wallpaper
-    [Wallpaper]::SystemParametersInfo(
+    $success = [Wallpaper]::SystemParametersInfo(
         20,
         0,
         $randomWallpaper.FullName,
         3
     )
 
-    # Wait 20 minutes
-    Start-Sleep -Seconds 1200
+    if ($success) {
+        Write-Host "Wallpaper changed successfully."
+    }
+    else {
+        Write-Host "ERROR: Windows could not change the wallpaper."
+    }
+
+    Write-Host "Next wallpaper in 5 minutes..."
+    Write-Host ""
+
+    $previousWallpaper = $randomWallpaper.FullName
+    
+    Start-Sleep -Seconds 300
 }
