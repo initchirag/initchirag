@@ -1,8 +1,8 @@
-name: Random Profile Wallpaper
+name: Profile Wallpaper
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/20 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -21,16 +21,16 @@ jobs:
         run: |
           python3 <<'PY'
           from pathlib import Path
-          import random
           import re
 
           wallpaper_dir = Path("randomizer/wallpapers")
           readme = Path("README.md")
 
-          # Find JPG and JPEG wallpapers
+          # Find all JPG and JPEG wallpapers
           wallpapers = sorted(
               list(wallpaper_dir.glob("*.jpg")) +
-              list(wallpaper_dir.glob("*.jpeg"))
+              list(wallpaper_dir.glob("*.jpeg")),
+              key=lambda p: p.name.lower()
           )
 
           if not wallpapers:
@@ -39,14 +39,16 @@ jobs:
                   "randomizer/wallpapers/"
               )
 
-          print(f"Found {len(wallpapers)} wallpapers.")
+          print("Wallpaper queue:")
+          for i, wallpaper in enumerate(wallpapers, start=1):
+              print(f"{i}. {wallpaper.name}")
 
           # Read README
           text = readme.read_text(encoding="utf-8")
 
           # Find currently displayed wallpaper
           current_match = re.search(
-              r'./randomizer/wallpapers/([^"\s>]+\.(?:jpg|jpeg))',
+              r'\./randomizer/wallpapers/([^"\s>]+\.(?:jpg|jpeg))',
               text,
               re.IGNORECASE
           )
@@ -55,21 +57,20 @@ jobs:
 
           print(f"Current wallpaper: {current}")
 
-          # Don't immediately choose the same wallpaper
-          choices = [
-              wallpaper
-              for wallpaper in wallpapers
-              if wallpaper.name.lower() != (current or "").lower()
-          ]
+          # Find current wallpaper's position
+          current_index = -1
 
-          # If there is only one wallpaper
-          if not choices:
-              choices = wallpapers
+          if current:
+              for i, wallpaper in enumerate(wallpapers):
+                  if wallpaper.name.lower() == current.lower():
+                      current_index = i
+                      break
 
-          # Pick random wallpaper
-          selected = random.choice(choices)
+          # Move to the NEXT wallpaper in order
+          next_index = (current_index + 1) % len(wallpapers)
+          selected = wallpapers[next_index]
 
-          print(f"New wallpaper: {selected.name}")
+          print(f"Next wallpaper: {selected.name}")
 
           # New centered wallpaper block
           wallpaper_block = f"""<!-- WALLPAPER_START -->
@@ -80,7 +81,7 @@ jobs:
 
           <!-- WALLPAPER_END -->"""
 
-          # Look for existing wallpaper block
+          # Find existing wallpaper block
           pattern = (
               r'<!-- WALLPAPER_START -->'
               r'.*?'
@@ -88,7 +89,7 @@ jobs:
           )
 
           if re.search(pattern, text, flags=re.DOTALL):
-              # Replace existing block
+              # Replace existing wallpaper
               updated = re.sub(
                   pattern,
                   wallpaper_block,
@@ -97,14 +98,14 @@ jobs:
                   flags=re.DOTALL
               )
 
-              print("Existing wallpaper block updated.")
+              print("Wallpaper changed successfully.")
 
           else:
-              # No block exists, add one at the beginning
+              # Create wallpaper block
               updated = wallpaper_block + "\n\n" + text
 
               print("No wallpaper block found.")
-              print("Created wallpaper block automatically.")
+              print("Created wallpaper block.")
 
           # Save README
           readme.write_text(updated, encoding="utf-8")
