@@ -1,52 +1,26 @@
 # 🖼️ Wallpaper Randomizer
 
-A lightweight Windows wallpaper changer that randomly rotates wallpapers every **20 minutes**.
+<p align="center">
+  <img src="./randomizer/wallpapers/wallpaper01.png" width="100%">
+</p>
 
-## Features
+A wallpaper randomizer that changes the displayed wallpaper every 20 minutes.
 
-- Supports 20+ wallpapers
-- Randomly shuffles wallpapers
-- Changes wallpaper every 20 minutes
-- Avoids immediately repeating the same wallpaper
-- No external Python packages required
+## ✨ Features
 
-## Project Structure
+- 🔀 Random wallpaper selection
+- ⏱️ Changes every 20 minutes
+- 🖼️ Supports PNG wallpapers
+- ⚡ Automatically updated using GitHub Actions
+- 🪟 Includes a PowerShell wallpaper changer
 
-```text
-wallpaper-randomizer/
-├── main.py
-├── README.md
-└── wallpapers/
-    └── Put your wallpapers here
-```
+## 📂 Wallpapers
 
-## Requirements
+20 wallpapers are included in the `randomizer/wallpapers` folder.
 
-- Windows
-- Python 3.x
+## 🚀 Windows Wallpaper
 
-## Run
+To use the wallpapers as your Windows desktop background, run:
 
-```bash
-python main.py
-```
-
-The program will continuously change your desktop wallpaper every 20 minutes.
-
-## Add Wallpapers
-
-Put `.jpg`, `.jpeg`, `.png`, `.bmp`, or `.webp` images inside the `wallpapers` folder.
-
-## Change the Interval
-
-In `main.py`:
-
-```python
-INTERVAL = 20 * 60
-```
-
-For example, 10 minutes:
-
-```python
-INTERVAL = 10 * 60
-```
+```powershell
+.\randomizer\wallpaper.ps1
