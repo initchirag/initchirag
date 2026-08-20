@@ -4,7 +4,7 @@ import time
 import ctypes
 
 WALLPAPER_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wallpapers")
-INTERVAL = 20 * 60  # 20 minutes
+INTERVAL = 5 * 60  # 5 minutes
 
 def get_wallpapers():
     extensions = (".jpg", ".jpeg", ".png", ".bmp", ".webp")
