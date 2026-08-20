@@ -1,7 +1,9 @@
 <p align="center">
-  <img src="./randomizer/wallpapers/wallpaper09.jpg" width="100%" alt="Random wallpaper">
+  <img src="./randomizer/wallpapers/wallpaper05.jpg" width="100%" alt="Random wallpaper">
 </p>
 
+
 dream big, God can fund it..?
+
 
 [website](https://grepwithchirag7.netlify.app)  |  [linkedIn](https://www.linkedin.com/in/beingchiragsingh)  |  [email](mailto:grepchiragsingh7@example.com)
