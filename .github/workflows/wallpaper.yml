@@ -1,0 +1,57 @@
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  change-wallpaper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select random wallpaper
+        shell: bash
+        run: |
+          wallpapers=(randomizer/wallpapers/*.png)
+          random_wallpaper=${wallpapers[$RANDOM % ${#wallpapers[@]}]}
+
+          echo "Selected: $random_wallpaper"
+
+          filename=$(basename "$random_wallpaper")
+
+          python - <<PY
+          from pathlib import Path
+          import re
+
+          readme = Path("README.md")
+          text = readme.read_text()
+
+          new_image = f"./randomizer/wallpapers/{filename}"
+
+          text = re.sub(
+              r'(<img src=")\./randomizer/wallpapers/[^"]+(")',
+              rf'\g<1>{new_image}\g<2>',
+              text
+          )
+
+          readme.write_text(text)
+          PY
+
+      - name: Commit wallpaper change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update random wallpaper"
+            git push
+          fi
