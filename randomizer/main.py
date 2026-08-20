@@ -3,49 +3,79 @@ import random
 import time
 import ctypes
 
-WALLPAPER_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wallpapers")
-INTERVAL = 5 * 60  # 5 minutes
+WALLPAPER_FOLDER = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "wallpapers"
+)
+
+CHANGE_EVERY = 5 * 60  
 
 def get_wallpapers():
-    extensions = (".jpg", ".jpeg", ".png", ".bmp", ".webp")
-    return [
-        os.path.join(WALLPAPER_FOLDER, file)
-        for file in os.listdir(WALLPAPER_FOLDER)
-        if file.lower().endswith(extensions)
-    ]
+    supported_formats = (".jpg", ".jpeg", ".png", ".bmp")
+
+    wallpapers = []
+
+    for filename in os.listdir(WALLPAPER_FOLDER):
+        if filename.lower().endswith(supported_formats):
+            wallpapers.append(
+                os.path.join(WALLPAPER_FOLDER, filename)
+            )
+
+    return wallpapers
 
 def set_wallpaper(image_path):
-    ctypes.windll.user32.SystemParametersInfoW(20, 0, image_path, 3)
+    ctypes.windll.user32.SystemParametersInfoW(
+        20,
+        0,
+        image_path,
+        3
+    )
 
 def main():
+
+    print("====================================")
+    print("       RANDOM WALLPAPER CHANGER")
+    print("====================================")
+
     if not os.path.exists(WALLPAPER_FOLDER):
-        print("Error: wallpapers folder not found.")
+        print("ERROR: wallpapers folder not found!")
         return
 
     wallpapers = get_wallpapers()
 
     if not wallpapers:
-        print("No wallpapers found in the wallpapers folder.")
+        print("ERROR: No wallpapers found!")
         return
 
     print(f"Found {len(wallpapers)} wallpapers.")
-    print("Wallpaper changer started. Changing every 20 minutes.")
+    print("Changing wallpaper every 5 minutes.")
+    print("Press CTRL + C to stop.\n")
 
     last_wallpaper = None
 
     while True:
-        shuffled = wallpapers.copy()
-        random.shuffle(shuffled)
 
-        for wallpaper in shuffled:
-            if wallpaper == last_wallpaper and len(shuffled) > 1:
-                continue
+        available_wallpapers = [
+            wallpaper
+            for wallpaper in wallpapers
+            if wallpaper != last_wallpaper
+        ]
 
-            set_wallpaper(wallpaper)
-            print(f"Changed wallpaper to: {os.path.basename(wallpaper)}")
-            last_wallpaper = wallpaper
+        wallpaper = random.choice(available_wallpapers)
 
-            time.sleep(INTERVAL)
+        set_wallpaper(wallpaper)
+
+        print(
+            f"Changed to: {os.path.basename(wallpaper)}"
+        )
+
+        last_wallpaper = wallpaper
+
+        print("Waiting 5 minutes...\n")
+        time.sleep(5 * 60)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nWallpaper changer stopped.")
