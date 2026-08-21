@@ -8,4 +8,4 @@
 
 dream big, God can fund it..?
 
-[website](https://grepwithchirag7.netlify.app)  |  [linkedIn](https://www.linkedin.com/in/beingchiragsingh)  |  [email](mailto:grepchiragsingh7@example.com)
+[website](https://chiragsinghco.netlify.app)  |  [linkedIn](https://www.linkedin.com/in/beingchiragsingh)  |  [email](mailto:grepchiragsingh7@example.com)
