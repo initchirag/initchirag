@@ -6,6 +6,6 @@
 
 <!-- WALLPAPER_END -->
 
-dream big, God can fund it..?
+dream big
 
 [website](https://chiragsinghco.netlify.app)  |  [linkedIn](https://www.linkedin.com/in/beingchiragsingh)  |  [email](mailto:grepchiragsingh7@example.com)
