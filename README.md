@@ -1,7 +1,7 @@
 <!-- WALLPAPER_START -->
 
 <p align="center">
-  <img src="./randomizer/wallpapers/wallpaper05.jpg" width="100%" alt="Random wallpaper">
+  <img src="./randomizer/wallpapers/wallpaper06.jpg" width="100%" alt="Random wallpaper">
 </p>
 
 <!-- WALLPAPER_END -->
