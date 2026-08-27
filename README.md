@@ -9,8 +9,9 @@ I'm Chirag Singh from India
 
 ```text
 
-focus       : Blue Team 
-working_on  : CCNA 200-301
+focus       : Blue team
+working ON  : Beginners cybersecurity framework
+              CCNA 200-301
 
 ````
 
