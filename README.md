@@ -2,45 +2,13 @@
 
 I'm Chirag Singh from India 
 
----
-
-## `./aspirations`
-
-
-```text
-
-focus       : Blue team
-working ON  : Beginners cybersecurity framework
-              CCNA 200-301
-
-````
-
----
-
 ## `cat ./skills.txt`
 
 <div align="center">
 
-![SIEM](https://img.shields.io/badge/SIEM-00B8D9?style=flat-square)
 ![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=flat-square)
 ![Python](https://img.shields.io/badge/Python-555555?style=flat-square)
 ![Linux](https://img.shields.io/badge/Linux-555555?style=flat-square)
-![Security+](https://img.shields.io/badge/Security%2B-In_Progress-00B894?style=flat-square)
-
-<img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=GitHub%20Stats&show_icons=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" />
-
-<br>
-
-<div align="center">
-  <img
-    align="center"
-    height="500"
-    src="https://i.gifer.com/3fmn.gif"
-    alt="Coding animation"
-  />
-</div>
-
-<br>
 
 <div align="center">
 
@@ -57,6 +25,23 @@ working ON  : Beginners cybersecurity framework
   </a>
 
 </div>
+
+<img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=GitHub%20Stats&show_icons=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" />
+
+
+<br>
+
+<div align="center">
+  <img
+    align="center"
+    height="500"
+    src="https://i.gifer.com/3fmn.gif"
+    alt="Coding animation"
+  />
+</div>
+
+<br>
+
 
 <br>
 
@@ -82,6 +67,5 @@ working ON  : Beginners cybersecurity framework
 <br>
 
 <div align="center">
-
 
 </div>
