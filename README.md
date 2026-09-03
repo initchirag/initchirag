@@ -2,26 +2,22 @@
 
 I'm Chirag Singh from India 
 
-## `cat ./skills.txt`
+## `./stats`
 
 <div align="center">
-
-![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=flat-square)
-![Python](https://img.shields.io/badge/Python-555555?style=flat-square)
-![Linux](https://img.shields.io/badge/Linux-555555?style=flat-square)
 
 <div align="center">
 
   <a href="https://chiragsinghco.netlify.app/">
-    <img src="https://img.shields.io/static/v1?message=Website&logo=Website&label=&color=0077C5&logoColor=white&style=for-the-badge" height="35" alt="Website" />
+    <img src="https://img.shields.io/static/v1?message=Website&logo=Website&label=&color=0077C5&logoColor=white&style=for-the-badge" height="75" alt="Website" />
   </a> 
   
   <a href="mailto:grepchiragsingh7@gmail.com">
-    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&style=for-the-badge" height="35" alt="Gmail" />
+    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&style=for-the-badge" height="75" alt="Gmail" />
   </a>
 
   <a href="https://www.linkedin.com/in/beingchiragsingh/">
-    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&style=for-the-badge" height="35" alt="LinkedIn" />
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&style=for-the-badge" height="75" alt="LinkedIn" />
   </a>
 
 </div>
