@@ -14,6 +14,7 @@ I'm Chirag Singh from India
 
 <img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=GitHub%20Stats&show_icons=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" />
 
+https://commit-craft.wjz-p.workers.dev/api/map/initchirag.svg
 
 <br>
 
