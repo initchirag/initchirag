@@ -8,19 +8,9 @@ I'm Chirag Singh from India
 
 <div align="center">
 
-  <a href="https://chiragsinghco.netlify.app/">
-    <img src="https://img.shields.io/static/v1?message=Website&logo=Website&label=&color=0077C5&logoColor=white&style=for-the-badge" height="75" alt="Website" />
-  </a> 
-  
-  <a href="mailto:grepchiragsingh7@gmail.com">
-    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&style=for-the-badge" height="75" alt="Gmail" />
-  </a>
-
-  <a href="https://www.linkedin.com/in/beingchiragsingh/">
-    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&style=for-the-badge" height="75" alt="LinkedIn" />
-  </a>
-
 </div>
+
+![GitHub Stats](https://github-readme-stats-fast.vercel.app/api/top-langs/?username=initchirag&layout=compact&theme=tokyonight)
 
 <img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=GitHub%20Stats&show_icons=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" />
 
