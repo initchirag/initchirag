@@ -17,11 +17,12 @@
   </tr>
 </table>
 
-
-<p align="center">
-<img width="900" height="400" alt="image" src="https://s5.ezgif.com/tmp/ezgif-5f149006e43a788f.gif" />
-</p>
+**`./connect`**
 
 <p align="center">
   <a href="https://chiragsinghco.netlify.app/"><img src="https://img.shields.io/badge/Website-Chirag%20Singh-F5C518?style=for-the-badge&labelColor=F5C518&logoColor=111111" height="32"></a><a href="https://profile.hackthebox.com/"><img src="https://img.shields.io/badge/HACK%20THE%20BOX-initchirag-111111?style=for-the-badge&labelColor=111111&logo=hackthebox&logoColor=9FEF00" height="32"></a><a href="https://www.linkedin.com/in/beingchiragsingh/"><img src="https://img.shields.io/badge/LinkedIn-Chirag%20Singh-F5C518?style=for-the-badge&labelColor=F5C518&logo=linkedin&logoColor=111111" height="32"></a>
 </p>
+
+**`./statistics`**
+
+[![GitHub Streak](https://streak-stats.demolab.com?user=initchirag&theme=dark&border_radius=4&short_numbers=true)](https://git.io/streak-stats)
