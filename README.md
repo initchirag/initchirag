@@ -19,7 +19,7 @@
 
 
 <p align="center">
-<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/a86be64f-ca24-4659-af29-f84d86f68309" />
+<img width="900" height="400" alt="image" src="https://s5.ezgif.com/tmp/ezgif-5f149006e43a788f.gif" />
 </p>
 
 <p align="center">
