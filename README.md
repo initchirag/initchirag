@@ -1,7 +1,3 @@
-## `./whoami`
-
-I'm Chirag Singh from India 
-
 ## `./socials`
 
 <div align="center">
@@ -21,8 +17,6 @@ I'm Chirag Singh from India
 ![GitHub Stats](https://github-readme-stats-fast.vercel.app/api/top-langs/?username=initchirag&layout=compact&theme=tokyonight)
 
 <img src="https://github-stats-extended.vercel.app/api?username=initchirag&rank_icon=github&custom_title=GitHub%20Stats&show_icons=true&include_all_commits=true&theme=tokyonight" alt="GitHub Stats" />
-
-<img src="https://commit-craft.wjz-p.workers.dev/api/map/initchirag.svg" />
 
 <br>
 
@@ -62,13 +56,5 @@ I'm Chirag Singh from India
 <br>
 
 <div align="center">
-
-</div>
-
-<div align="center">
-
-# 💭 Chirag Singh
-
-![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 </div>
